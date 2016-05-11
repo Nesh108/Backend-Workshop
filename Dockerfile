@@ -5,7 +5,7 @@ ENV SHELL bash
 ENV WORKON_HOME /usr/local/app
 
 # Make project folder
-RUN mkdir WORKON_HOME
+RUN mkdir ${WORKON_HOME}
 
 # Copy all files
 ADD . ${WORKON_HOME}
