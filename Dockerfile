@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM golang
 
 # Setup general environment
 ENV SHELL bash
