@@ -13,6 +13,9 @@ ADD src ${WORKON_HOME}
 # Change work directory
 WORKDIR ${WORKON_HOME}
 
+# Install dependencies
+RUN go get "github.com/gorilla/pat"
+
 # Write version file
 RUN echo "1.0" > version.dat
 
