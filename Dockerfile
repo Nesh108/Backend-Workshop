@@ -1,11 +1,14 @@
-FROM golang
+FROM golang:latest
 
 # Setup general environment
 ENV SHELL bash
 ENV WORKON_HOME /usr/local/app
 
-# Copy needed files
-COPY src ${WORKON_HOME}
+# Make project folder
+RUN mkdir WORKON_HOME
+
+# Copy all files
+ADD . ${WORKON_HOME}
 
 WORKDIR ${WORKON_HOME}
 
