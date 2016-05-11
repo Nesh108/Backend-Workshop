@@ -17,7 +17,7 @@ WORKDIR ${WORKON_HOME}
 RUN go get "github.com/gorilla/pat"
 
 # Write version file
-RUN echo "1.0" > version.dat
+RUN echo "0.1" > version.dat
 
 # Compile and execute the script
 RUN go build server.go
