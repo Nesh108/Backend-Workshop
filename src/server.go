@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 	"runtime"
 	"strconv"
 	"strings"
@@ -35,11 +36,13 @@ func DataHandler(w http.ResponseWriter, r *http.Request) {
 	input := r.URL.Query().Get(":num")
 	num, err := strconv.Atoi(input)
 
+	docker := os.Getenv("DOCKER_NAME")
+
 	if err == nil {
 		result := calculateFibonacci(num)
-		fmt.Fprintf(w, "{\"Version\" : \""+version+"\", \"Number\" : \""+strconv.Itoa(num)+"\", \"Result\": \""+strconv.FormatUint(result, 10)+"\"}")
+		fmt.Fprintf(w, "{\"Version\" : \""+version+"\", \"ResponseBy\" : \""+docker+"\", \"Number\" : \""+strconv.Itoa(num)+"\", \"Result\": \""+strconv.FormatUint(result, 10)+"\"}")
 	} else {
-		fmt.Fprintf(w, "{\"Version\" : \""+version+"\", \"Error\": \"Entered number is invalid\"}")
+		fmt.Fprintf(w, "{\"Version\" : \""+version+"\", \"ResponseBy\" : \""+docker+"\", \"Error\": \"Entered number is invalid\"}")
 	}
 }
 

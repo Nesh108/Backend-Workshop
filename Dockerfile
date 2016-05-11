@@ -3,6 +3,7 @@ FROM golang:latest
 # Setup general environment
 ENV SHELL bash
 ENV WORKON_HOME /usr/local/app
+ENV DOCKER_NAME DEFAULT_NAME
 
 # Make project folder
 RUN mkdir ${WORKON_HOME}
@@ -17,7 +18,7 @@ WORKDIR ${WORKON_HOME}
 RUN go get "github.com/gorilla/pat"
 
 # Write version file
-RUN echo "0.1" > version.dat
+RUN echo "0.0" > version.dat
 
 # Compile and execute the script
 RUN go build server.go
