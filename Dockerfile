@@ -8,7 +8,7 @@ ENV WORKON_HOME /usr/local/app
 RUN mkdir ${WORKON_HOME}
 
 # Copy all files
-ADD . ${WORKON_HOME}
+ADD src ${WORKON_HOME}
 
 # Change work directory
 WORKDIR ${WORKON_HOME}
