@@ -1,0 +1,25 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "backend-ws",
+        "labels": {
+            "run": "backend-ws"
+        },
+        "selfLink": "/api/v1/namespaces/default/services/backend-ws"
+    },
+    "spec": {
+        "selector": {
+            "app": "backend-ws"
+        },
+        "ports": [
+            {
+                "name": "http",
+                "protocol": "TCP",
+                "port": 1080,
+                "targetPort": 1080
+            }
+        ],
+        "type" : "LoadBalancer"
+    }
+}

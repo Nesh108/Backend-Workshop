@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: backend-ws
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: backend-ws
+    spec:
+      containers:
+        - name: backend-ws
+          image: nesh108/backend-workshop
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 1080
+          env:
+              - name: DOCKER_NAME
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.name
