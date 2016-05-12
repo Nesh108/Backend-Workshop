@@ -50,10 +50,10 @@ func readVersionFile() {
 	v, err := ioutil.ReadFile(VERSION_FILE)
 
 	if err != nil {
-		panic(err) // Could not file file
+		version = "0.0"
+	} else {
+		version = strings.Replace(string(v), "\n", "", -1)
 	}
-
-	version = strings.Replace(string(v), "\n", "", -1)
 }
 
 func main() {
